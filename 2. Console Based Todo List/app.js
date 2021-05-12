@@ -4,6 +4,13 @@ let run = true;
 while(run)
 {
     let choice = prompt("What would you like to do?");
+    // When the user presses cancel, it returns null, and toLowerCase is not defined on null
+    if(isNull(choice))  
+    {
+        alert('Enter "quit" if you want to quit the app');
+        continue;
+    }
+
     choice = choice.toLowerCase();
     let todo;
 
