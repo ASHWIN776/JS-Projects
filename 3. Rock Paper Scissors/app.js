@@ -7,7 +7,8 @@ const rules = {
   scissor: "paper"
 };
 
-const results = [0,0];
+let playerScore = 0;
+let computerScore = 0;
 const gamesCount = parseInt(prompt("How many rounds?"));
 console.log(game(gamesCount));
 
@@ -16,21 +17,25 @@ function playRound(playerSelection, computerSelection) {
   if(playerSelection == computerSelection)
     return "TIE";
 
+  // Checking who wins the round
   for(option in rules)
   {
+    // User winning case
     if(playerSelection === option && computerSelection === rules[option])
     {
-      results[0]++;
+      playerScore++;
       return `Haha..You win!! ${playerSelection} beats ${computerSelection}`; 
     }
   }
-  results[1]++;
+  // Computer winning case
+  computerScore++;
   return `Badluck, You lost!! ${computerSelection} beats ${playerSelection}`;
 }
   
 function computerPlay()
 {
-    let idx = Math.floor(Math.random() * 3);
+  // ~~ is faster than using Math.floor()
+    let idx = ~~(Math.random() * 3);
     console.log(`Computer Selection : ${game_options[idx]}`);
 
     return game_options[idx];
@@ -50,9 +55,9 @@ function game(howMany)
 
 function displayResult()
 {
-  console.log(`User Points = ${results[0]}, Computer Points = ${results[1]}`);
+  console.log(`User Points = ${playerScore}, Computer Points = ${computerScore}`);
 
-  return results[0] < results[1] ? "Computer Wins the tournament" 
-  : results[0] > results[1] ? "You win the tournament"
+  return playerScore < computerScore ? "Computer Wins the tournament" 
+  : playerScore > computerScore ? "You win the tournament"
   : "Tournament Tied";
 }
