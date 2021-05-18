@@ -10,3 +10,51 @@ body,html{
     box-sizing: inherit;
 }
 
+.wrapper{
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1{
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+#year{
+    font-size: 3.5rem;
+}
+
+h2{
+    font-weight: 300;
+    font-size: 1rem;
+    text-decoration: underline;
+}
+
+ul{
+    list-style-type: none;
+    text-align: initial;
+    padding: 0 0.7rem;
+}
+
+li{
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.done{
+    background-color: lawngreen;
+}
+
+.ongoing{
+    background-color: yellow;
+}
+
+.coming{
+    background-color: red;
+}
+
+.clock{
+    font-size: 0.8rem;
+    padding: 0.2rem 1rem;
+}
