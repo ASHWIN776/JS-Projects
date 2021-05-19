@@ -9,3 +9,6 @@ html, body{
     box-sizing: inherit;
 }
 
+#container{
+    text-align: center;
+}
