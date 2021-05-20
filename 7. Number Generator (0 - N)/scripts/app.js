@@ -2,10 +2,18 @@ const form = document.querySelector("form");
 const input = document.querySelector("input");
 const btn = document.querySelector("button");
 const numContainer = document.querySelector("#num");
+const errorSpan = document.createElement("span");
+errorSpan.classList.add("error");
+form.before(errorSpan);
 
 form.addEventListener('submit', (evt) => {
     evt.preventDefault();
 
+    if(!formValidate())
+        return;
+
+    else errorSpan.innerText = "";
+    
     // To reset the container -- otherwise it'll append numbers to it
     numContainer.innerText = "";
 
@@ -43,3 +51,20 @@ function isPrime(num){
     return true;
 }
 
+// form Validation
+function formValidate(){
+    const inputVal = form.elements.maxNum.value;
+    let error = "";
+
+    if(inputVal == "")
+        error = "Enter number value in the input field to generate numbers";
+    
+    else if(isNaN(parseInt(inputVal)))
+        error = "Input a number value";
+    
+    else return true;
+
+    // Show error
+    errorSpan.innerText = error;
+    return false;
+}   
