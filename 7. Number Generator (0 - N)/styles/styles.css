@@ -9,3 +9,13 @@ body,html{
     box-sizing: inherit;
 }
 
+h1{
+    color: rgb(95, 236, 95);
+}
+
+#container{
+    width: 50%;
+    margin: 0 auto;
+    border: 2px solid;
+    text-align: center;
+}
