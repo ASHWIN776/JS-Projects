@@ -3,6 +3,7 @@ const input = document.querySelector("input");
 const btn = document.querySelector("button");
 const numContainer = document.querySelector("#num");
 const errorSpan = document.createElement("span");
+
 errorSpan.classList.add("error");
 form.before(errorSpan);
 
@@ -23,7 +24,6 @@ form.addEventListener('submit', (evt) => {
     else
         for(let i = 0; i < maxNum; ++i)
             createElement(i);
-    
 });
 
 function createElement(num){
