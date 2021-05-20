@@ -7,5 +7,4 @@ Access the Site &rArr; [link](https://ashwin776.github.io/JS-Projects/7.%20Numbe
 
 * DOM
     * Adding / Removing Elements
-    * Keyboard Events
     * Form Events
