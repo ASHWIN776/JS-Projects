@@ -16,6 +16,30 @@ h1{
 #container{
     width: 50%;
     margin: 0 auto;
-    border: 2px solid;
     text-align: center;
+}
+
+.numSpan{
+    padding: 1rem;
+    color: white;
+    font-weight: bold;
+}
+
+.odd{
+    background-color: rgb(228, 222, 39);
+}
+
+.even{
+    background-color: rgb(95, 236, 95);
+}
+
+.prime{
+    background-color: red;
+}
+
+#num{
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(10, minmax(20px, 1fr));
+    grid-gap: 5px;
 }
