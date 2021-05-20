@@ -9,7 +9,7 @@ form.addEventListener('submit', (evt) => {
     // To reset the container -- otherwise it'll append numbers to it
     numContainer.innerText = "";
 
-    const maxNum = parsInt(form.elements.maxNum.value);
+    const maxNum = parseInt(form.elements.maxNum.value);
 
     if(maxNum > 1000) console.log("NOPE");
     else
