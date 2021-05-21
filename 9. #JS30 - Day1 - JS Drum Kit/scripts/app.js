@@ -1,3 +1,4 @@
+
 // Adding eventListener for keydown event
 window.addEventListener('keydown', (evt) => {
     const key = document.querySelector(`.key[data-key="${evt.keyCode}"]`) 
