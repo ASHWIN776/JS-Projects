@@ -69,6 +69,6 @@ function reset(){
     enableButtons();
  
     // Remove classes applied on scorecard
-    team1Display.className = "";
-    team2Display.className = "";
+    team1Display.classList.remove("win", "lose");
+    team2Display.classList.remove("win", "lose");
 }
