@@ -18,8 +18,6 @@ const allKeys = document.querySelectorAll(".key");
 for(let key of allKeys)
 {
     key.addEventListener('transitionend', (evt) => {
-        // We gotta look only for transition for transforms
-        if(evt.propertyName !== "transform") return;
         // Remove the playing class
         key.classList.remove("playing");
     });
