@@ -2,8 +2,29 @@ body{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    background-image: url("../img/background.jpg");
 }
 
 *, *::after, *::before{
     box-sizing: inherit;
+}
+
+.keys{
+    border: 2px solid white;
+    display: flex;
+}
+
+.key{
+    transition: transform 500ms;
+}
+
+.key > kbd{
+    background-color: grey;
+    font-size: 2rem;
+    padding: 1rem;
+    color: white;
+}
+
+.playing{
+    transform: scale(1.1a);
 }
