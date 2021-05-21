@@ -10,18 +10,44 @@ body{
 }
 
 .keys{
-    border: 2px solid white;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
+    justify-content: center;
 }
 
 .key{
+    margin: 0 1rem;
     border: 4px solid black;
     transition: all 500ms;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 5%;
+    text-align: center;
+    position: relative;
+}
+
+.key::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.key span{
+    color : #ffc600;
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
 }
 
 .key > kbd{
     display: inline-block;
-    background-color: grey;
     font-size: 2rem;
     color: white;
 }
@@ -29,4 +55,5 @@ body{
 .playing{
     transform: scale(1.1);
     box-shadow: 0 0 10px #ffc600;
+    border-color: #ffc600;
 }
