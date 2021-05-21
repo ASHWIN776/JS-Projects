@@ -1,4 +1,4 @@
-Access the site &rArr; [here]("https://ashwin776.github.io/JS-Projects/8.%20Football%20Score%20Keeper/")
+Access the site &rArr; [here](https://ashwin776.github.io/JS-Projects/8.%20Football%20Score%20Keeper/)
 
 
 # Features & Working
