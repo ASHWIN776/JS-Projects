@@ -15,16 +15,18 @@ body{
 }
 
 .key{
-    transition: transform 500ms;
+    border: 4px solid black;
+    transition: all 500ms;
 }
 
 .key > kbd{
+    display: inline-block;
     background-color: grey;
     font-size: 2rem;
-    padding: 1rem;
     color: white;
 }
 
 .playing{
-    transform: scale(1.1a);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #ffc600;
 }
