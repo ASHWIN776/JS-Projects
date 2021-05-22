@@ -3,7 +3,10 @@ const minHand = document.querySelector("#minHand");
 const hrHand = document.querySelector("#hrHand");
 
 
-setInterval(() => {
+setTime(); // so that it runs just as the browser loads
+setInterval( setTime ,1000); // This starts after 1s and then runs continuously
+
+function setTime(){
     const time = new Date();
     const sec = time.getSeconds();
     const min = time.getMinutes();
@@ -18,4 +21,4 @@ setInterval(() => {
 
     // 1 hr === 30deg, 1min = 0.5deg and 1sec = 0.083deg
     hrHand.style.transform = `rotate(${90 + hr * 30 + min*0.5 +  sec * 0.083}deg)`;
-},1000)
+}
