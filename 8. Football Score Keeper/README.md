@@ -1,5 +1,5 @@
 
-![Site Snap](img/site_snap.png)
+![Site Snap](img/site_snap.jpg)
 
 
 # Footbal Score Keeper
