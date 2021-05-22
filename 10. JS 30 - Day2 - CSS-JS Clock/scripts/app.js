@@ -14,7 +14,6 @@ function setTime(){
 
     // At n seconds, rotate secHand (n * 6) if you consider 0deg to be at 12, but here 0deg is at 9
     secHand.style.transform = `rotate(${90 + sec * 6}deg)`;
-    console.log(minHand.style.transform, 90 + (min * 60 + sec)*0.1);
     
     // 1 min = 6%, 1sec = 0.1deg
     minHand.style.transform = `rotate(${90 + min * 6 + sec*0.1}deg)`;
