@@ -2,9 +2,46 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 *, *::after, *::before{
     box-sizing: inherit;
 }
 
+#clock{
+    height: 300px;
+    width: 300px;
+    border: 10px solid white;
+    border-radius: 50%;
+    position: relative;
+}
+  
+  
+#minHand{
+    width: 30%;
+}
+  
+#secHand{
+    width: 45%;
+}
+  
+#hrHand{
+    width: 20%;
+}
+  
+#minHand, 
+#secHand, 
+#hrHand
+{   background-color: white;
+    transform-origin: right;
+    position: absolute;
+    top: 50%;
+    right: calc(50% + 7px);
+    height: 3px;
+}
+  
