@@ -3,7 +3,7 @@
 
 # JS Drum Kit - #Javascript30(Day - 1)
 
-Access the site &rArr; [here](https://ashwin776.github.io/JS-Projects/9.%20JS30%20-%20Day1%20-%20JS%20Drum%20Kit/)
+Access the site &rArr; [here](https://ashwin776.github.io/JS-Projects/09.%20JS30%20-%20Day1%20-%20JS%20Drum%20Kit/)
 
 ---
 
