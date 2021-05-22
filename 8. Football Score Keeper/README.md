@@ -1,7 +1,13 @@
+
+![Site Snap](img/site_snap.png)
+
+
+# Footbal Score Keeper
+
 Access the site &rArr; [here](https://ashwin776.github.io/JS-Projects/8.%20Football%20Score%20Keeper/)
 
-
-# Features & Working
+---
+## Features & Working
 
 * Dynamic Scoreboard
 * Dropdown will accept the winning Score (max is 10)
