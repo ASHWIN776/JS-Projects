@@ -8,3 +8,20 @@ body{
     box-sizing: inherit;
 }
 
+:root{
+    --spacing: 10px;
+    --blur: 10px;
+    --color: #ffc600;
+}
+
+img{
+    width: 600px;
+    padding: var(--spacing);
+    background-color: var(--color);
+    /* To blur the image */
+    filter: blur(var(--blur));
+}
+
+.highlight{
+    color: var(--color);
+}
