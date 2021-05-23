@@ -1,8 +1,11 @@
 body{
+    background-color: #19263f;
+    color: white;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Varela Round', sans-serif;
+    text-align: center;
 }
 
 *, *::after, *::before{
@@ -15,14 +18,27 @@ body{
     --color: #ffc600;
 }
 
+.highlight{
+    color: var(--color);
+}
+
+#controls{
+    margin-bottom: 3rem;
+}
+
+h1{
+    font-size: 2.5rem;
+}
+
+#controls label{
+    font-size: 1.5rem;
+}
+
+
 img{
     width: 600px;
     padding: var(--spacing);
     background-color: var(--color);
     /* To blur the image */
     filter: blur(var(--blur));
-}
-
-.highlight{
-    color: var(--color);
 }
