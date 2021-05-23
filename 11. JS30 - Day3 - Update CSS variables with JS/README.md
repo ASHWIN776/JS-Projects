@@ -5,7 +5,6 @@
 Access the site &rArr; [here](https://ashwin776.github.io/JS-Projects/11.%20JS30%20-%20Day3%20-%20Update%20CSS%20variables%20with%20JS/)
 
 ---
-
 ## Things I learned
 
 1. CSS Variables
