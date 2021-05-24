@@ -20,7 +20,7 @@ form.addEventListener('submit', (evt) => {
 
     const maxNum = parseInt(form.elements.maxNum.value);
 
-    if(maxNum > 1000) console.log("NOPE");
+    if(maxNum >= 1000) alert("Input numbers from 1 - 1000");
     else
         for(let i = 0; i < maxNum; ++i)
             createElement(i);
