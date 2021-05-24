@@ -39,28 +39,89 @@
       
       // Array.prototype.filter()
       // 1. Filter the list of inventors for those who were born in the 1500's
-  
+        const inventors1500 = inventors.filter(({year}) => year >= 1500 && year < 1600);
+
+        console.log(inventors1500);
+
       // Array.prototype.map()
       // 2. Give us an array of the inventors first and last names
-  
+        const firstLastNames = inventors.map(({first : firstName,last : lastName}) => ({firstName ,lastName}));
+
+        console.log(firstLastNames);
+
       // Array.prototype.sort()
       // 3. Sort the inventors by birthdate, oldest to youngest
-  
+        inventors.sort(sortDates);
+        function sortDates({year : year1}, {year : year2}){
+           return  year2 - year1;
+        }  
+
+        console.log(inventors)
+
       // Array.prototype.reduce()
       // 4. How many years did all the inventors live all together?
-  
+        const totalYears = inventors.reduce((sum, {year, passed}) => sum + (passed - year), 0);
+        console.log(totalYears)
+
       // 5. Sort the inventors by years lived
-  
+        inventors.sort(sortYearsLived);
+
+        function sortYearsLived({year : year1, passed : passed1}, {year : year2, passed : passed2}){
+            return (passed2 - year2) - (passed1 - year1);
+        }
+        console.log(inventors)
+
+        /* To check if the prev ans is correct
+         console.log(inventors.map((inventor) => {
+            const yearsLived = inventor.passed - inventor.year;
+            return {...inventor, yearsLived};
+         }))
+        */
+
       // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
-      // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-  
+      // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris - paste the codes below in the console of this site
+    /*
+         Step1: Extracting the elements containing the reqd values
+         Step2: Convert the nodelist to an array so that array methods can be used
+         Step3: Using map() make array of values
+         Step 4: Using filter() to filter out the values that have "de" in them
+    */
+      const allLinks = document.querySelectorAll(".mw-category-group li a");
+      const linkArr = Array.from(allLinks);
+
+      const reqdValues = linkArr.map(link => link.innerText).filter(value => {
+          if(value.indexOf("de") >= 0)
+            return true;
+        return false;
+      })
   
       // 7. sort Exercise
       // Sort the people alphabetically by last name
-  
+        people.sort(sortByLastName);
+
+        function sortByLastName(name1, name2){
+            let lastName1 = name1.split(", ")[1];
+            let lastName2 = name2.split(", ")[1];
+
+            if(lastName1 > lastName2) return 1;
+            
+            else if(lastName1 === lastName2) return 0;
+            
+            return -1;
+         }
+         console.table(people)
       // 8. Reduce Exercise
       // Sum up the instances of each of these
       const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+
+      const talliedData = data.reduce((obj, currItem) => {
+        if(obj.hasOwnProperty(currItem))
+            obj[currItem]++;
+        else 
+            obj[currItem] = 1;
+        return obj;
+      }, {})
+    console.table(talliedData);
   
     </script>
 </body>
