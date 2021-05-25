@@ -21,6 +21,7 @@ body, html{
 .panel{
     text-align: center;
     flex-grow: 1;
+    font-size: 2rem;
     font-weight: bold;
     color: rgb(221, 221, 221);
     box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
@@ -30,13 +31,12 @@ body, html{
     text-transform: uppercase;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-around; */
+    transition: flex-grow 1000ms,
+    font-size 1000ms;
 }
 
 .panel p{
-    border: 2px solid red;
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
-    font-size: 2rem;
     flex-grow: 1;
     margin: 0;
     display: flex;
@@ -45,13 +45,6 @@ body, html{
     transition: transform 500ms;
 }
 
-.panel.open{
-    flex-grow: 5;
-}
-
-p:nth-of-type(2){
-    font-size: 3.5rem;
-}
 
 p:first-child{
     transform: translateY(-100%);
@@ -61,8 +54,13 @@ p:last-child{
     transform: translateY(100%);
 }
 
-p.active{
+.panel.active > p{
     transform: translateY(0);
+}
+
+.panel.open{
+    flex-grow: 5;
+    font-size: 5rem;
 }
 
 
