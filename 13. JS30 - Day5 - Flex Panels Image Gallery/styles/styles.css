@@ -6,8 +6,6 @@ body, html{
     background: #ffc600;
 }
 
-
-
 *, *::before, *::after{
     box-sizing: inherit;
 }
