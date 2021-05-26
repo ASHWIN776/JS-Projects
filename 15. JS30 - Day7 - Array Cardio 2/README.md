@@ -9,3 +9,11 @@
     * `find()`
     * `findIndex()`
 
+2. **BONUS** : To delete element at an index of an array ( `comments` for e.g) using the *spread operator* (`...`)
+```javascript
+const newArr = [
+    ...comments.slice(0, index),
+    ...comments.slice(index + 1);
+] 
+```
+
