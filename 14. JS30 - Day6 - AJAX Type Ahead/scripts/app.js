@@ -1,6 +1,7 @@
 const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
 const input = document.querySelector("input");
+const suggestions = document.querySelector(".suggestions");
 
 let data;
 
@@ -33,11 +34,16 @@ const displayMatchedData = function(){
 
     let matchedData = getMatchedData(wordToMatch, data);
 
-    matchedData = matchedData.map(place => ({
-        location: `${place.city}, ${place.state}`, 
-        population: place.population
-    }))
-    console.log(matchedData)
+    const html = matchedData.map(({city, state, population}) => {
+        return `
+            <li>${city}, ${state} - ${population}</li>
+        `
+    }).join("");
+
+    suggestions.innerHTML = html;
+    // Matched Data will be shown in the console
+    // console.log(matchedData)
+
 }
 
 input.addEventListener("input", displayMatchedData)
