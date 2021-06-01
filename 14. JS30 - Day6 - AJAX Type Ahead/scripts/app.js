@@ -35,14 +35,23 @@ const displayMatchedData = function(){
     let matchedData = getMatchedData(wordToMatch, data);
 
     const html = matchedData.map(({city, state, population}) => {
+        const regex = new RegExp(this.value, "gi");
+        const cityName = city.replace(regex, `<span class="hl">${this.value}</span>`);
+        const stateName = state.replace(regex, `<span class="hl">${this.value}</span>`);
+
         return `
-            <li>${city}, ${state} - ${population}</li>
+            <li>
+            <span>
+                ${cityName}, ${stateName}
+            </span>
+            <span>
+                ${population}
+            </span> 
+            </li>
         `
     }).join("");
 
     suggestions.innerHTML = html;
-    // Matched Data will be shown in the console
-    // console.log(matchedData)
 
 }
 
