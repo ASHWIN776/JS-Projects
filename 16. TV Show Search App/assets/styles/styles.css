@@ -17,3 +17,14 @@ html{
 #formSection{
     text-align: center;
 }
+
+
+#query-results{
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+}
+
+.img-container{
+    text-align: center;
+}

@@ -16,8 +16,12 @@ async function showResults(evt)
 
 
         const results = data
-        .filter(({show:{image}}) => image !== null)
-        .map(({show:{image:{medium}}}) => `<img src="${medium}">`)
+        .filter(({show:{image, url}}) => image && url)
+        .map(({show:{image:{medium}, url}}) => `
+        <div class="img-container">
+            <a href="${url}"><img src="${medium}"></a>
+        </div> 
+        `)
         .join("");
         console.log(results);   
 
