@@ -1,5 +1,4 @@
 # 14 Must Know Dev Tools Tricks - #Javascript30(Day - 9)
----
 
 ## Things I learned
 
@@ -77,7 +76,7 @@
         console.groupEnd(dog.name);
     });
     ```
-    Output : 
+    Output : \
     ![Output](grouping_output.png);
 
     **11. Counting** : `console.count()` logs the number of times that this particular call to count() has been called.
