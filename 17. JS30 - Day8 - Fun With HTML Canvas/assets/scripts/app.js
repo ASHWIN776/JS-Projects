@@ -12,6 +12,7 @@ ctx.lineWidth = 100;
 let isDrawing = false;
 let x = 0;
 let y = 0;
+let hue = 0;
 
 canvas.addEventListener("mousedown", initiate);
 canvas.addEventListener("mousemove", continueDrawing);
@@ -39,11 +40,13 @@ function continueDrawing(e)
 
 function draw(endX,endY)
 {
+    ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
     console.log(x,y,endX,endY);
     ctx.beginPath();
     ctx.moveTo(x, y);
     [x, y] = [endX, endY];
     ctx.lineTo(endX, endY);
     // ctx.closePath();
+    hue++;
     ctx.stroke();
 }
