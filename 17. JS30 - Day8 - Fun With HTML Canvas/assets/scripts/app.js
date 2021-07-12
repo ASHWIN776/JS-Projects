@@ -7,12 +7,13 @@ canvas.height = window.innerHeight;
 ctx.strokeStyle = "#BADA55";
 ctx.lineJoin = "round";
 ctx.lineCap = "round";
-ctx.lineWidth = 100;
+ctx.lineWidth = 1;
 
 let isDrawing = false;
 let x = 0;
 let y = 0;
 let hue = 0;
+let direction = true;
 
 canvas.addEventListener("mousedown", initiate);
 canvas.addEventListener("mousemove", continueDrawing);
@@ -46,7 +47,18 @@ function draw(endX,endY)
     ctx.moveTo(x, y);
     [x, y] = [endX, endY];
     ctx.lineTo(endX, endY);
-    // ctx.closePath();
-    hue++;
     ctx.stroke();
+    hue++;
+    // resseting, but aint reqd
+    if(hue >= 360) hue = 0;
+
+    if(ctx.lineWidth >= 100 || ctx.lineWidth <= 1)
+    {
+        direction = !direction;
+    }
+
+    if(direction)
+        ctx.lineWidth++;
+    else 
+        ctx.lineWidth--;
 }
