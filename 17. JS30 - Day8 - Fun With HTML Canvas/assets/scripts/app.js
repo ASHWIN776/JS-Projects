@@ -7,6 +7,7 @@ canvas.height = window.innerHeight;
 ctx.strokeStyle = "#BADA55";
 ctx.lineJoin = "round";
 ctx.lineCap = "round";
+ctx.lineWidth = 100;
 
 let isDrawing = false;
 let x = 0;
@@ -14,13 +15,16 @@ let y = 0;
 
 canvas.addEventListener("mousedown", initiate);
 canvas.addEventListener("mousemove", continueDrawing);
-canvas.addEventListener("mouseup", stop);
+canvas.addEventListener("mouseup", () => {
+    isDrawing = false;
+}
+);
+// canvas.addEventListener("mouseout", () => isDrawing = false);
 
 function initiate(e)
 {
     console.log(e);
-    x = e.offsetX;
-    y = e.offsetY;
+    [x,y] = [e.offsetX,e.offsetY];
     isDrawing = true;
 }
 
@@ -33,18 +37,12 @@ function continueDrawing(e)
     }
 }
 
-function stop(e)
-{
-    isDrawing = false;
-}
-
-
 function draw(endX,endY)
 {
+    console.log(x,y,endX,endY);
     ctx.beginPath();
     ctx.moveTo(x, y);
-    x = endX;
-    y = endY;
+    [x, y] = [endX, endY];
     ctx.lineTo(endX, endY);
     // ctx.closePath();
     ctx.stroke();
