@@ -9,7 +9,6 @@ function selectMultiple(e)
     console.log(e);
     if(e.shiftKey && this.checked) // Hold shift === true && checkbox is checked
     {
-        console.log("Hold shift : YES");
         let i = 0;
         checkboxes.forEach(cb => {
             if(cb === this || cb === lastChecked)
@@ -17,10 +16,7 @@ function selectMultiple(e)
 
             if(isBetween)
                 cb.checked = true;
-
-            console.log(i++, `isBetween = ${isBetween}`);
         });
-        // checkboxes.forEach(cb => console.log(cb.checked));
     }
     // Last checked will be the checkbox which is checked simply
     lastChecked = this;
