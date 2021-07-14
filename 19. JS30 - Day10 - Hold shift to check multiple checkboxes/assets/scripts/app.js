@@ -7,7 +7,7 @@ function selectMultiple(e)
 {
     let isBetween = false;
     console.log(e);
-    if(e.shiftKey && this.checked) // Hold shift === true && checkbox is checked
+    if(e.shiftKey && this.checked && lastChecked) // Hold shift === true && checkbox is checked
     {
         let i = 0;
         checkboxes.forEach(cb => {
