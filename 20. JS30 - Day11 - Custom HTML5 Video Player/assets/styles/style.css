@@ -1,0 +1,12 @@
+html{
+    box-sizing: border-box;
+}
+
+*, *::after, *::before{
+    box-sizing: initial;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
