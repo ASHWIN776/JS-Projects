@@ -19,5 +19,7 @@ function selectMultiple(e)
         });
     }
     // Last checked will be the checkbox which is checked simply
+    if(this.checked)
     lastChecked = this;
+    else lastChecked = undefined; // checking and unchecking one box and holding shift to select another should only select the latter
 }
