@@ -6,6 +6,14 @@ const toggle = player.querySelector(".toggle");
 const skipButtons = player.querySelectorAll("button[data-skip]");
 const ranges = player.querySelectorAll("input[type='range']");
 
+let duration;
+
+// Takes time for the video metadata loads
+video.addEventListener("loadedmetadata", () => {
+    duration = video.duration;
+    console.log(duration);
+})
+
 function togglePlay(e)
 {
     if(video.paused)
