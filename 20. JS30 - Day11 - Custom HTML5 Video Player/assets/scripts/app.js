@@ -31,12 +31,19 @@ video.addEventListener("loadedmetadata", () => {
     })
 })
 
-ranges[0].addEventListener("input", adjustVolume);
+// To adjust volume
+ranges.forEach(range => range.addEventListener("input", adjust));
+// ranges[1].addEventListener("input", adjustPla)
 
-
-function adjustVolume(e)
+function adjust(e)
 {
-    video.volume = e.target.value;
+    console.log(e);
+
+    if(e.target.name === "volume")
+        video.volume = e.target.value;
+
+    else 
+        video.playbackRate = e.target.value;
 }
 
 function calcWidthOfProgress()
