@@ -18,17 +18,31 @@ video.addEventListener("loadedmetadata", () => {
     progress.addEventListener("click", playHere);
 
     // Updates the progressBar in intervals of 1s
-    setInterval(updateProgress, 1000);
+    setInterval(calcWidthOfProgress, 1000);
+
+    // Skip
+    skipButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const skipSec = parseInt(button.dataset.skip);
+            video.currentTime += skipSec;
+            progressWidth = video.currentTime * pxInSec;
+            updateProgress(progressWidth);
+        })
+    })
 })
 
-function updateProgress()
+function calcWidthOfProgress()
 {
     if(!video.paused)
     {
         const widthNow = video.currentTime * pxInSec; // the width in pixels that the progressBar should have at a specific video.currentTime
-
-        progressBar.style.flexBasis = `${widthNow}px`;
+        updateProgress(widthNow);
     }
+}
+
+function updateProgress(width)
+{
+    progressBar.style.flexBasis = `${width}px`;
 }
 
 function playHere(e)
@@ -37,7 +51,7 @@ function playHere(e)
     const mouseCoordX = e.offsetX;
     // This will give the video.currentTime at this width
     const timeNow = mouseCoordX / pxInSec;
-    progressBar.style.flexBasis = `${mouseCoordX}px`;
+    updateProgress(mouseCoordX);
     video.currentTime = timeNow;
 }
 
