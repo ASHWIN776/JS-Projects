@@ -98,6 +98,10 @@ body{
     cursor: ew-resize;
   }
   
+  .progress:hover{
+    cursor: pointer;
+  }
+
   .progress__filled {
     border-right: 5px solid white;
     background: #ffc600;
