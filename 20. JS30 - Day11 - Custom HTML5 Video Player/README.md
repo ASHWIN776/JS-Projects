@@ -1,6 +1,6 @@
 ![Site Snap](site_snap.png)
 
-# Custom HTML5 Video Player
+# Custom HTML5 Video Player - #Javascript30(Day - 11)
 
 Access the site &rArr; [here](https://ashwin776.github.io/JS-Projects/20.%20JS30%20-%20Day11%20-%20Custom%20HTML5%20Video%20Player/)
 
