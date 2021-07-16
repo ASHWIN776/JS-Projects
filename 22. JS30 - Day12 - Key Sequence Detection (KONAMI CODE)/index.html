@@ -7,6 +7,7 @@
     <title>Key Sequence Detection</title>
 </head>
 <body>
+    <h1>Start Typing and keep an eye at the CONSOLE!</h1>
     <script>
         const secretCode = "pickle";
         const pressed = [];
@@ -16,20 +17,16 @@
         function checkForCode(e)
         {
     
-            console.log(e.key);
             // Push the key into the array
             pressed.push(e.key);
 
             // This will have the info abt the last 6 letters pressed
             pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
-            console.log(pressed);
 
             // Detection of the sequence here
             if(pressed.join("").includes(secretCode))
             {
                 console.log("SECRET CODE MATCH");
-                // Make the array empty once the code is matched
-                pressed.splice(0, pressed.length);
             }
         }
     </script>
