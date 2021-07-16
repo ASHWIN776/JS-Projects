@@ -87,6 +87,10 @@ body{
     flex: 1;
   }
   
+  .full_screen:hover{
+    cursor: pointer;
+  }
+
   .progress {
     flex: 10;
     position: relative;
