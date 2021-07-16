@@ -15,6 +15,7 @@ Access the site &rArr; [here](https://ashwin776.github.io/JS-Projects/20.%20JS30
     - `video.currentTime`
 
 - For `click` events `offsetX`and `offsetY` properties of the event object gives the mouse coordinates relative to the element (doesn't include the padding).
+- `timeupdate` event fires up when `video.currentTime` changes - This can be used to update the progressBar instead of setIntervals, because the latter fires up even when the video is paused.
 
 
 ## Todos
