@@ -8,42 +8,17 @@ const ranges = player.querySelectorAll("input[type='range']");
 
 let duration, videoWidth, pxInSec;
 
-// Takes time for the video metadata loads
-video.addEventListener("loadedmetadata", () => {
-    duration = video.duration;
-    videoWidth = video.clientWidth - parseInt(getComputedStyle(progressBar).borderRightWidth);
-    pxInSec = 1 / (duration / videoWidth); // Pixels to move in 1s
 
-    console.log(duration, videoWidth);
-    progress.addEventListener("click", playHere);
-
-    // Updates the progressBar in intervals of 1s
-    setInterval(calcWidthOfProgress, 1000);
-
-    // Skip
-    skipButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const skipSec = parseInt(button.dataset.skip);
-            video.currentTime += skipSec;
-            progressWidth = video.currentTime * pxInSec;
-            updateProgress(progressWidth);
-        })
-    })
-})
-
-// To adjust volume
-ranges.forEach(range => range.addEventListener("input", adjust));
-// ranges[1].addEventListener("input", adjustPla)
 
 function adjust(e)
 {
     console.log(e);
-
+    
     if(e.target.name === "volume")
-        video.volume = e.target.value;
-
+    video.volume = e.target.value;
+    
     else 
-        video.playbackRate = e.target.value;
+    video.playbackRate = e.target.value;
 }
 
 function calcWidthOfProgress()
@@ -73,15 +48,19 @@ function playHere(e)
 function togglePlay(e)
 {
     if(video.paused)
-        video.play();
-
+    video.play();
+    
     else 
-        video.pause();
+    video.pause();
 }
 
-toggle.addEventListener("click", togglePlay);
-video.addEventListener("click", togglePlay);
 
+
+/*
+************
+All Event Listeners here
+************
+*/
 // Updates Button
 video.addEventListener("play", e => 
 {
@@ -90,3 +69,32 @@ video.addEventListener("play", e =>
 }
 );
 video.addEventListener("pause", e => toggle.innerText = "►");
+
+toggle.addEventListener("click", togglePlay);
+video.addEventListener("click", togglePlay);
+
+// To adjust volume or playbackRates
+ranges.forEach(range => range.addEventListener("input", adjust));
+
+// Takes time for the video metadata loads
+video.addEventListener("loadedmetadata", () => {
+    duration = video.duration;
+    videoWidth = video.clientWidth - parseInt(getComputedStyle(progressBar).borderRightWidth);
+    pxInSec = 1 / (duration / videoWidth); // Pixels to move in 1s
+
+    console.log(duration, videoWidth);
+    progress.addEventListener("click", playHere);
+
+    // Updates the progressBar in intervals of 1s
+    setInterval(calcWidthOfProgress, 1000);
+
+    // Skip
+    skipButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const skipSec = parseInt(button.dataset.skip);
+            video.currentTime += skipSec;
+            progressWidth = video.currentTime * pxInSec;
+            updateProgress(progressWidth);
+        })
+    })
+})
