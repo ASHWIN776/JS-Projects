@@ -9,7 +9,11 @@ const ranges = player.querySelectorAll("input[type='range']");
 let duration, videoWidth, pxInSec;
 
 
-
+/*
+************
+All Functions here
+************
+*/
 function adjust(e)
 {
     console.log(e);
@@ -54,6 +58,14 @@ function togglePlay(e)
     video.pause();
 }
 
+function skipToHere(e)
+{
+    const skipSec = parseInt(this.dataset.skip);
+    video.currentTime += skipSec;
+    progressWidth = video.currentTime * pxInSec;
+    updateProgress(progressWidth);
+}
+
 
 
 /*
@@ -83,18 +95,9 @@ video.addEventListener("loadedmetadata", () => {
     pxInSec = 1 / (duration / videoWidth); // Pixels to move in 1s
 
     console.log(duration, videoWidth);
-    progress.addEventListener("click", playHere);
-
-    // Updates the progressBar in intervals of 1s
-    setInterval(calcWidthOfProgress, 1000);
-
-    // Skip
-    skipButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const skipSec = parseInt(button.dataset.skip);
-            video.currentTime += skipSec;
-            progressWidth = video.currentTime * pxInSec;
-            updateProgress(progressWidth);
-        })
-    })
 })
+
+// Skip
+skipButtons.forEach(button => button.addEventListener("click", skipToHere))
+progress.addEventListener("click", playHere);
+video.addEventListener("timeupdate", calcWidthOfProgress);
