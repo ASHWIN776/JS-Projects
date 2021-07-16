@@ -19,6 +19,6 @@ Access the site &rArr; [here](https://ashwin776.github.io/JS-Projects/20.%20JS30
 
 ## Todos
 
-- Include a button for making the video full screen.
-- Slider can be dragged.
-- Moving the slider, adjusting volume and playbackRate using arrow keys
+- [ ] Include a button for making the video full screen.
+- [ ] Slider can be dragged.
+- [ ] Moving the slider, adjusting volume and playbackRate using arrow keys
