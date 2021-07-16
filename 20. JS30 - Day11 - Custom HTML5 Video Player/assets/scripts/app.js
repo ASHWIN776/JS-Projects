@@ -7,7 +7,7 @@ const skipButtons = player.querySelectorAll("button[data-skip]");
 const ranges = player.querySelectorAll("input[type='range']");
 
 let duration, videoWidth, pxInSec;
-
+let isDraggingProgress = false;
 
 /*
 ************
@@ -66,7 +66,26 @@ function skipToHere(e)
     updateProgress(progressWidth);
 }
 
+function initiateDragProgress(e)
+{
+    isDraggingProgress = true;
+}
 
+function dragProgress(e)
+{
+    if(isDraggingProgress)
+    {
+        playHere(e);
+        video.volume = 0;
+    }
+}
+
+function stopDragProgress(e)
+{
+    isDraggingProgress = false;
+    // Volume from 0 to default
+    video.volume = ranges[0].value;
+}
 
 /*
 ************
@@ -101,3 +120,7 @@ video.addEventListener("loadedmetadata", () => {
 skipButtons.forEach(button => button.addEventListener("click", skipToHere))
 progress.addEventListener("click", playHere);
 video.addEventListener("timeupdate", calcWidthOfProgress);
+
+progress.addEventListener("mousedown", initiateDragProgress);
+progress.addEventListener("mousemove", dragProgress);
+progress.addEventListener("mouseup", stopDragProgress);

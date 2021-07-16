@@ -23,4 +23,4 @@ Access the site &rArr; [here](https://ashwin776.github.io/JS-Projects/20.%20JS30
 - [ ] Include a button for making the video full screen.
 - [ ] Slider can be dragged.
 - [ ] Moving the slider, adjusting volume and playbackRate using arrow keys
-- [ ] While dragging the progressBar, the volume should be 0
+- [x] While dragging the progressBar, the volume should be 0
