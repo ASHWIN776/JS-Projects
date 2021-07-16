@@ -5,6 +5,7 @@ const progressBar = player.querySelector(".progress__filled");
 const toggle = player.querySelector(".toggle");
 const skipButtons = player.querySelectorAll("button[data-skip]");
 const ranges = player.querySelectorAll("input[type='range']");
+const fullScreenBtn = player.querySelector(".full_screen");
 
 let duration, videoWidth, pxInSec;
 let isDraggingProgress = false;
@@ -124,3 +125,4 @@ video.addEventListener("timeupdate", calcWidthOfProgress);
 progress.addEventListener("mousedown", initiateDragProgress);
 progress.addEventListener("mousemove", dragProgress);
 progress.addEventListener("mouseup", stopDragProgress);
+fullScreenBtn.addEventListener("click", e => video.requestFullscreen());
