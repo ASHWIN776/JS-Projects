@@ -51,6 +51,7 @@ h1 {
     transform: translateX(30%) scale(0.95);
   }
 
+  /* This class should be added on scroll */
   .slide-in.active {
     opacity: 1;
     transform: translateX(0%) scale(1);
