@@ -1,0 +1,13 @@
+html{
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+*, *::after, *::before{
+    box-sizing: inherit;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
