@@ -7,3 +7,7 @@ Access the site &rArr; [here](https://ashwin776.github.io/JS-Projects/23.%20JS30
 ---
 
 ## Things I learned
+
+- `debounce()` and it's use (Its in the app.js file)
+- `img.offsetTop` gives the distance between the top of the `window` and the top of the `img`
+-  *Refer the comments in .js file for more*

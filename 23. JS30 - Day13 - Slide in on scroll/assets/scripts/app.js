@@ -44,5 +44,4 @@ function slideIn(e)
         else 
             img.classList.remove("active");
     })
-    console.log("****");
 }
