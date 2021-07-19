@@ -70,11 +70,11 @@ html {
     content: "🌮";
   }
   
-  .add-items {
+  #itemContainer {
     margin-top: 20px;
   }
   
-  .add-items input {
+  #itemContainer input {
     padding: 10px;
     outline: 0;
     border: 1px solid rgba(0, 0, 0, 0.1);
