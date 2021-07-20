@@ -21,9 +21,12 @@ function populatePlates()
 {
     if(items.length)
     {
-        let listHTML = items.map(item => `<li>
-        <input type="checkbox"> ${item.text} 
-        </li> `).join("");
+        let listHTML = items.map((item, index) => 
+        `<li>
+            <input id="item-${index}" type="checkbox" ${item.done ? 'checked' : ''}> 
+            <label for="item-${index}">${item.text}</label>
+        </li>`)
+        .join("");
         console.log(listHTML);
 
         plates.innerHTML = listHTML;
