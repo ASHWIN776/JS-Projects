@@ -14,7 +14,7 @@ itemForm.addEventListener("submit", e => {
     items.push(item);
     // Resetting the inputs
     itemForm.reset();
-    sessionStorage.setItem("itemsArr", JSON.stringify(items));
+    updateStorage();
     populatePlates();
 })
 
@@ -28,7 +28,6 @@ function populatePlates()
         <label for="item-${index}">${item.text}</label>
         </li>`)
         .join("");
-        console.log(listHTML);
         
         plates.innerHTML = listHTML;
     }
@@ -43,9 +42,14 @@ function crossItem(e)
         // Update the "done" key of the items array of objects
         let cb_id = parseInt(e.target.dataset.id);
         items[cb_id].done = true;
-        sessionStorage.setItem("itemsArr", JSON.stringify(items));
+        updateStorage();
     }
 }
 
+
+function updateStorage()
+{
+    sessionStorage.setItem("itemsArr", JSON.stringify(items));
+}
 
 populatePlates();
