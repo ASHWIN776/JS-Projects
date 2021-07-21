@@ -2,8 +2,8 @@ const itemForm = document.querySelector("#itemContainer");
 const plates = document.querySelector(".plates");
 const items = JSON.parse(sessionStorage.getItem("itemsArr")) || [];
 
-// Getting the items
-itemForm.addEventListener("submit", e => {
+function addItems(e)
+{
     e.preventDefault();
     const value = itemForm.querySelector('input[name="item"]').value;
     
@@ -16,7 +16,8 @@ itemForm.addEventListener("submit", e => {
     itemForm.reset();
     updateStorage();
     populatePlates();
-})
+
+}
 
 function populatePlates()
 {
@@ -33,15 +34,13 @@ function populatePlates()
     }
 }
 
-plates.addEventListener("click", crossItem);
-
 function crossItem(e)
 {
-    if(e.target.nodeName === "INPUT" && e.target.checked)
+    if(e.target.nodeName === "INPUT")
     {
         // Update the "done" key of the items array of objects
         let cb_id = parseInt(e.target.dataset.id);
-        items[cb_id].done = true;
+        items[cb_id].done = !items[cb_id].done;
         updateStorage();
     }
 }
@@ -51,5 +50,10 @@ function updateStorage()
 {
     sessionStorage.setItem("itemsArr", JSON.stringify(items));
 }
+
+// Getting the items
+itemForm.addEventListener("submit", addItems);
+
+plates.addEventListener("click", crossItem);
 
 populatePlates();
