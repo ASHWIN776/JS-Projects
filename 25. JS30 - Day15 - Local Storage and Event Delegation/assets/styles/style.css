@@ -74,8 +74,12 @@ html {
     margin-top: 20px;
   }
   
-  #itemContainer input {
+  #itemContainer input, #moreOptions button {
     padding: 10px;
     outline: 0;
     border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  #moreOptions{
+    margin-top: 20px;
   }

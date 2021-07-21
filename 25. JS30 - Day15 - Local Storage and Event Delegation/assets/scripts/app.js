@@ -1,6 +1,9 @@
 const itemForm = document.querySelector("#itemContainer");
 const plates = document.querySelector(".plates");
 const items = JSON.parse(sessionStorage.getItem("itemsArr")) || [];
+const deleteBtn = document.querySelector("#deleteBtn");
+const checkBtn = document.querySelector("#checkAllBtn");
+const uncheckBtn = document.querySelector("#uncheckAllBtn");
 
 function addItems(e)
 {
@@ -29,9 +32,10 @@ function populatePlates()
         <label for="item-${index}">${item.text}</label>
         </li>`)
         .join("");
-        
         plates.innerHTML = listHTML;
     }
+    else
+        plates.innerHTML = "<li>Loading Tapas...</li>";
 }
 
 function crossItem(e)
@@ -53,7 +57,30 @@ function updateStorage()
 
 // Getting the items
 itemForm.addEventListener("submit", addItems);
-
+// Checking an item
 plates.addEventListener("click", crossItem);
+
+deleteBtn.addEventListener("click", e => 
+{
+    items.splice(0, items.length);
+    updateStorage();
+    populatePlates();
+});
+
+checkBtn.addEventListener("click", e => 
+{       
+    console.log(e);
+    items.forEach(item => item.done = true);
+    updateStorage();
+    populatePlates();
+});
+
+uncheckBtn.addEventListener("click", e => 
+{   
+    console.log(e);
+    items.forEach(item => item.done = false);
+    updateStorage();
+    populatePlates();
+});
 
 populatePlates();
