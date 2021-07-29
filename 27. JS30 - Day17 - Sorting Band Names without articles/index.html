@@ -19,10 +19,10 @@
         }
     
         #bands {
-          list-style: inside square;
-          font-size: 20px;
+          list-style: inside circle;
+          font-size: 15px;
           background: white;
-          width: 500px;
+          width: 400px;
           margin: auto;
           padding: 0;
           box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.05);
@@ -30,7 +30,7 @@
         
         #bands li {
           border-bottom: 1px solid #efefef;
-          padding: 20px;
+          padding: 10px;
         }
         
         #bands li:last-child {
@@ -47,18 +47,21 @@
       <ul id="bands"></ul>
     
     <script>
-    const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
-    
-    let bandsArr = [...bands];
-    bandsArr.sort((a,b) => {
-        let wordA = ` ${a} `.replace(/( an )|( a )|( the )/gi, " ").trim();
-        let wordB = ` ${b} `.replace(/( an )|( a )|( the )/gi, " ").trim();
-
-        if(wordA.toLowerCase() > wordB.toLowerCase())
-            return 1;
-        return -1;
-    });
-    console.log(bandsArr);
+        const bandContainer = document.querySelector("#bands");
+        const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+        
+        
+        let bandsArr = [...bands];
+        bandsArr.sort((a,b) => {
+          let wordA = ` ${a} `.replace(/( an )|( a )|( the )/gi, " ").trim();
+          let wordB = ` ${b} `.replace(/( an )|( a )|( the )/gi, " ").trim();
+          
+          if(wordA.toLowerCase() > wordB.toLowerCase())
+          return 1;
+          return -1;
+        });
+        console.log(bandsArr);
+        bandContainer.innerHTML = bandsArr.map(band => `<li>${band}</li>`).join("");
     </script>
     
 </body>
