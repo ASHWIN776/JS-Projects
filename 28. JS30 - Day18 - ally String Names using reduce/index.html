@@ -184,6 +184,21 @@
         </li>
       </ul>
     <script>
+        const lis = Array.from(document.querySelectorAll("li"));
+        let total = lis.map(li => {
+            return {
+                min : parseInt(li.dataset.time.split(":")[0]),
+                sec : parseInt(li.dataset.time.split(":")[1])
+            }
+        })
+        .reduce((total, curr) => ({min: total.min + curr.min, sec: total.sec + curr.sec}));
+
+        let totalHr = parseInt((total.min + parseInt(total.sec / 60)) / 60);
+        let totalMins = total.min + parseInt(total.sec / 60) - totalHr * 60;
+        let totalSecs = total.sec - parseInt(total.sec / 60) * 60;
+        console.log(`${totalHr}:${totalMins}:${totalSecs}`);
+        
+
     </script>
 </body>
 </html>
