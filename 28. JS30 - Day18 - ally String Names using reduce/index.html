@@ -185,20 +185,43 @@
       </ul>
     <script>
         const lis = Array.from(document.querySelectorAll("li"));
-        let total = lis.map(li => {
-            return {
-                min : parseInt(li.dataset.time.split(":")[0]),
-                sec : parseInt(li.dataset.time.split(":")[1])
-            }
+        // using map and reduce
+            /* 
+            let total = lis.map(li => {
+                return {
+                    min : parseInt(li.dataset.time.split(":")[0]),
+                    sec : parseInt(li.dataset.time.split(":")[1])
+                }
+            })
+            .reduce((total, curr) => {
+                console.log(total,curr);
+                return {min: total.min + curr.min, sec: total.sec + curr.sec}
+            });
+
+            
+            let totalHr = parseInt((total.min + parseInt(total.sec / 60)) / 60);
+            let totalMins = total.min + parseInt(total.sec / 60) - totalHr * 60;
+            let totalSecs = total.sec - parseInt(total.sec / 60) * 60;
+            console.log(`${totalHr}:${totalMins}:${totalSecs}`);
+            
+            */
+        // Using reduce only
+        let totalTime = lis.reduce((total, curr) => {
+            console.log(total, curr);
+            total.dataset.time = `${parseInt(total.dataset.time.split(":")[0]) + parseInt(curr.dataset.time.split(":")[0])}:${parseInt(total.dataset.time.split(":")[1]) + parseInt(curr.dataset.time.split(":")[1])}`;
+            return total; 
         })
-        .reduce((total, curr) => ({min: total.min + curr.min, sec: total.sec + curr.sec}));
+
+        let total = {
+            min : parseInt(totalTime.dataset.time.split(":")[0]),
+            sec : parseInt(totalTime.dataset.time.split(":")[1])
+        }
 
         let totalHr = parseInt((total.min + parseInt(total.sec / 60)) / 60);
         let totalMins = total.min + parseInt(total.sec / 60) - totalHr * 60;
         let totalSecs = total.sec - parseInt(total.sec / 60) * 60;
         console.log(`${totalHr}:${totalMins}:${totalSecs}`);
         
-
     </script>
 </body>
 </html>
