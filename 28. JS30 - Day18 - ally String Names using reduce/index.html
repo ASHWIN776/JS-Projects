@@ -185,7 +185,7 @@
       </ul>
     <script>
         const lis = Array.from(document.querySelectorAll("li"));
-        // using map and reduce
+        // *************************using map and reduce
             /* 
             let total = lis.map(li => {
                 return {
@@ -205,7 +205,7 @@
             console.log(`${totalHr}:${totalMins}:${totalSecs}`);
             
             */
-        // Using reduce only
+        // **************************Using reduce only
         let totalTime = lis.reduce((total, curr) => {
             console.log(total, curr);
             total.dataset.time = `${parseInt(total.dataset.time.split(":")[0]) + parseInt(curr.dataset.time.split(":")[0])}:${parseInt(total.dataset.time.split(":")[1]) + parseInt(curr.dataset.time.split(":")[1])}`;
@@ -220,7 +220,7 @@
         let totalHr = parseInt((total.min + parseInt(total.sec / 60)) / 60);
         let totalMins = total.min + parseInt(total.sec / 60) - totalHr * 60;
         let totalSecs = total.sec - parseInt(total.sec / 60) * 60;
-        console.log(`${totalHr}:${totalMins}:${totalSecs}`);
+        console.log(`${totalHr}:${totalMins}:${totalSecs}`);    
         
     </script>
 </body>
