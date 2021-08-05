@@ -207,15 +207,15 @@
             */
         // **************************Using reduce only
         let totalTime = lis.reduce((total, curr) => {
-            console.log(total, curr);
+            console.log(total, curr); 
             total.dataset.time = `${parseInt(total.dataset.time.split(":")[0]) + parseInt(curr.dataset.time.split(":")[0])}:${parseInt(total.dataset.time.split(":")[1]) + parseInt(curr.dataset.time.split(":")[1])}`;
-            return total; 
+            return total;   
         })
 
         let total = {
             min : parseInt(totalTime.dataset.time.split(":")[0]),
             sec : parseInt(totalTime.dataset.time.split(":")[1])
-        }
+        } 
 
         let totalHr = parseInt((total.min + parseInt(total.sec / 60)) / 60);
         let totalMins = total.min + parseInt(total.sec / 60) - totalHr * 60;
