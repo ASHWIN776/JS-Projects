@@ -11,7 +11,41 @@
 
 <script>
   window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.interimResults = true;
 
+    const words = document.querySelector(".words");
+    let p = document.createElement("p");
+    words.append(p);
+    
+    // This comes
+    recognition.addEventListener("result", speechToText);
+    
+    function speechToText(e)
+    {   let speech = Array.from(e.results);
+      
+      // Making the transcript
+      let transcript = speech
+      .map(res => res[0])
+      .map(res => res.transcript)
+      .join("");
+
+      // Check if the isFinal is true, to make new paras
+      if(results[0].isFinal)
+      {
+        p = document.createElement("p");
+        words.append(p);
+      }
+      
+      // Showing the transcript in the UI
+      p.innerText = transcript;
+      console.log(transcript)
+    }
+
+    // Call recognition.start when service ends listening
+    recognition.addEventListener("end", recognition.start);
+
+    recognition.start();    
 
 </script>
 
